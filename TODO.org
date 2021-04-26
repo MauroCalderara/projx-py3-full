@@ -1,0 +1,83 @@
+#+TITLE: TODOs for projx/python/full_executable
+
+* TODO Get the basic structure in place
+
+** docs/
+
+** src/
+
+** tests/
+
+* TODO Get the following tools working
+
+** Formatting
+
+*** flake8
+
+*** isort
+
+*** black
+
+*** doc8
+
+*** eradicate
+
+** Static checking
+
+*** unimport
+
+*** vulture
+    
+*** flake8
+
+*** pylint
+
+*** mypy
+
+** Doc checking
+
+*** flake8
+
+** Testing
+
+*** pytest
+
+*** tox?
+
+*** something for coverage
+
+*** something for performance testing
+
+** Doc generation
+
+*** sphinx
+
+* TODO Define xmake template strings
+
+** __t_project_short_name__
+
+** __t_project_version__
+   
+** __t_project_description__
+
+** __t_developer_name__
+
+** __t_developer_email__
+
+** __t_cli_name__
+
+** __t_module_name__
+
+** __t_project_keywords__
+   
+** __t_project_homepage_url__
+
+** __t_project_repository_url__
+
+** __t_project_buildstatus_url__
+
+** __t_project_documentation_url__
+
+** __t_license_date__
+
+** __t_project_python_version__

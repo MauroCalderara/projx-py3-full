@@ -1,0 +1,184 @@
+# Copyright __t_license_date__ __t_developer_name__
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#
+# 1. Redistributions of source code must retain the above copyright notice,
+#    this list of conditions and the following disclaimer.
+#
+# 2. Redistributions in binary form must reproduce the above copyright notice
+#    this list of conditions and the following disclaimer in the documentation
+#    and/or other materials provid with the distribution.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+# ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+# LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+# CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+# SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+# INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+# CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+# ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+# POSSIBILITY OF SUCH DAMAGE.
+
+# PEP 517/518/621 support (see https://snarky.ca/clarifying-pep-518)
+
+[project]
+name = "__t_project_short_name__"
+# See https://www.python.org/dev/peps/pep-0440/
+#     https://www.python.org/dev/peps/pep-0621/#version
+version = "__t_project_version__"
+# https://www.python.org/dev/peps/pep-0621/#description
+description = "__t_project_description__"
+readme = "README.rst"
+# See https://www.python.org/dev/peps/pep-0621/#requires-python
+# https://www.python.org/dev/peps/pep-0508/
+requires-python = "__t_python_version_requirements__"
+license = { file = "LICENSE" }
+authors = [
+    { name = "__t_developer_name__",
+      email = "__t_developer_email__",
+    }
+]
+maintainers = [
+    { name = "__t_developer_name__",
+      email = "__t_developer_email__",
+    }
+]
+# See https://www.python.org/dev/peps/pep-0621/#entry-points
+scripts = { "__t_cli_name__" = "__t_module_name__.cli:__t_cli_main_function_name__" }
+# See https://pypi.org/classifiers/
+classifiers = [
+    "License :: Other/Proprietary License",
+    "Programming Language :: Python :: __t_project_python_version",
+]
+keywords = [ "__t_project_keywords__" ]
+
+# See https://www.python.org/dev/peps/pep-0621/#dependencies-optional-dependencies
+#     https://www.python.org/dev/peps/pep-0508/
+dependencies = [ ]
+
+# Optional depdendencies can be specified like this:
+#
+#optional-dependencies = [ "foo", "bar" ]
+#
+# Or with flavors (run "pip install '__t_project_name__[development]'")
+[project.optional-dependencies]
+development = [
+
+    # Code formatting
+    "black",
+
+    # Allows to check wheels
+    "check-wheel-contents",
+
+    # Cohesion checker for flake8
+    "cohesion",
+
+    # Consistent docstrings
+    "doc8",
+
+    # Static analysis
+    # If you add/remove a flake8 plugin here, consider adjusting
+    # .projx/config/python3/flake8/required_plugins.txt, otherwise
+    # the checking targets will check the flake8 installation against
+    # a stale list of required plugins.
+    "flake8-adjustable-complexity",
+    "flake8-annotations",
+    "flake8-alfred",
+    "flake8-black",
+    "flake8-blind-except",
+    "flake8-breakpoint",
+    "flake8-bugbear",
+    "flake8-builtins",
+    "flake8-class-attributes-order",
+    "flake8-cognitive-complexity",
+    "flake8-colors",
+    "flake8-comprehensions",
+    "flake8-copyright",
+    "flake8-docstrings",
+    "flake8-eradicate",
+    "flake8-expression-complexity",
+    "flake8-mutable",
+    "flake8-functions",
+    "flake8-import-order",
+    "flake8-pep3101",
+    "flake8-print",
+    "flake8-pyi",
+    "flake8-pytest-style",
+    "flake8-quotes",
+    "flake8-return",
+    "flake8-self",
+    "flake8-sfs",
+    "flake8-simplify",
+    "flake8-typing_imports",
+
+    # Sorting of imports
+    "isort",
+
+    # Type checking
+    "mypy",
+
+    # Testing framework
+    "pytest>5.0.0",
+    "pytest-cov[all]",
+
+    # Static analysis (plugins for flake8 and pylint)
+    "pep8-naming",
+    "pylint",
+    "pycodestyle",
+    "pyflakes",
+
+    # Various metrics
+    "radon",
+
+    # Remove unused imports
+    "unimport",
+
+    # Detect unused code
+    "vulture",
+
+]
+
+[project.urls]
+homepage = "__t_project_homepage_url__"
+repository = "__t_project_repository_url__"
+documentation = "__t_project_documentation_url__"
+build = "__t_project_buildstatus_url__"
+
+
+##############################
+# Build specific configuration
+#
+# This would have to change if you were to use, say, Poetry.
+
+[build-system]
+requires = [
+    "setuptools>=43.0.0",
+    "toml"
+]
+build_backend = "setuptools.build_meta"
+
+
+#############################
+# Tool specific configuration
+#
+
+[tool.black]
+line-length = 80
+
+[tool.isort]
+profile = "black"
+line_length = 80
+src_paths = [ "src", "tests" ]
+
+[tool.unimport]
+sources = [ "src", "tests" ]
+gitignore = true
+show_error = true
+include_star_import = true
+
+[tool.vulture]
+sort_by_size = true
+verbose = false  # vulture is _very_ verbose otherwise
