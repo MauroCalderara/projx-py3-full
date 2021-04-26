@@ -37,14 +37,10 @@ readme = "README.rst"
 requires-python = "__t_python_version_requirements__"
 license = { file = "LICENSE" }
 authors = [
-    { name = "__t_developer_name__",
-      email = "__t_developer_email__",
-    }
+    "__t_developer_name__ <__t_developer_email__>",
 ]
 maintainers = [
-    { name = "__t_developer_name__",
-      email = "__t_developer_email__",
-    }
+    "__t_developer_name__ <__t_developer_email__>",
 ]
 # See https://www.python.org/dev/peps/pep-0621/#entry-points
 scripts = { "__t_cli_name__" = "__t_module_name__.cli:__t_cli_main_function_name__" }
@@ -60,9 +56,9 @@ keywords = [ "__t_project_keywords__" ]
 dependencies = [ ]
 
 # Optional depdendencies can be specified like this:
-#
+
 #optional-dependencies = [ "foo", "bar" ]
-#
+
 # Or with flavors (run "pip install '__t_project_name__[development]'")
 [project.optional-dependencies]
 development = [
